@@ -54,7 +54,7 @@ public class Main extends Configured implements Tool {
         job2.setMapperClass(Map2.class);
         job2.setReducerClass(Reduce2.class);
 
-        Path inputFilePath1 = new Path("/Users/hadoop/IdeaProjects/MapReduce/data/input/census.txt");
+        Path inputFilePath1 = new Path("/Users/hadoop/IdeaProjects/MapReduce/data/input/flags.txt");
         Path outputFilePath1 = new Path("/Users/hadoop/IdeaProjects/MapReduce/data/output1");
 
         FileInputFormat.addInputPath(job2, inputFilePath1);

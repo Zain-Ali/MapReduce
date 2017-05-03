@@ -23,10 +23,10 @@ public class Map2 extends Mapper<LongWritable, Text, Text, DoubleWritable> {
 
         try {
 
-            String gender = data[9];
-            Double age = Double.parseDouble(data[4]);
+            String countryName = data[0];
+            Integer countryCode = Integer.parseInt(data[1]);
 
-            context.write(new Text(gender), new DoubleWritable(age));
+            context.write(new Text(countryName), new DoubleWritable(countryCode));
         }
         catch (Exception e) {
 
