@@ -12,7 +12,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class Map extends Mapper<LongWritable, Text, Text, DoubleWritable> {
+public class Map2 extends Mapper<LongWritable, Text, Text, DoubleWritable> {
     @Override
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         //first get line in form of string
@@ -22,11 +22,11 @@ public class Map extends Mapper<LongWritable, Text, Text, DoubleWritable> {
         String[] data = line.split(",");
 
         try {
-            //Job One
-            String martialStatus = data[5];
-            Double hrs = Double.parseDouble(data[12]);
 
-            context.write(new Text(martialStatus), new DoubleWritable(hrs));
+            String gender = data[9];
+            Double age = Double.parseDouble(data[4]);
+
+            context.write(new Text(gender), new DoubleWritable(age));
         }
         catch (Exception e) {
 
