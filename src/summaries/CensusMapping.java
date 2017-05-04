@@ -24,7 +24,8 @@ public class CensusMapping extends Thread {
     public void run(){
         try {
             job();
-        }catch(Exception ex){
+        }
+        catch(Exception ex){
 
         }
     }
