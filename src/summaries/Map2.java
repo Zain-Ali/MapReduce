@@ -24,9 +24,14 @@ public class Map2 extends Mapper<LongWritable, Text, Text, DoubleWritable> {
         try {
 
             String countryName = data[0];
-            Integer countryCode = Integer.parseInt(data[1]);
+            Double listOfCities = Double.parseDouble(data[3]);
 
-            context.write(new Text(countryName), new DoubleWritable(countryCode));
+            String flagColour = data[29];
+            Double countryCode = Double.parseDouble(data[27]);
+
+
+            context.write(new Text(countryName), new DoubleWritable(listOfCities));
+            context.write(new Text(flagColour), new DoubleWritable(countryCode));
         }
         catch (Exception e) {
 
