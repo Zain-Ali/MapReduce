@@ -1,33 +1,32 @@
-package summaries;
-
 /**
- * Created by hadoop on 29/04/2017.
+ * Author: UP687776
+ *
+ * The code was original taken from
+ * https://app.pluralsight.com/library/courses/mapreduce-applying-common-data-problems/table-of-contents
+ * https://app.pluralsight.com/library/courses/mapreduce-applying-common-data-problems/exercise-files
+ *
+ * However, it has been significantly changed and refactored and it’s not in its original state
  */
 
+
+package summaries;
+
 import org.apache.hadoop.conf.Configured;
-import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.DoubleWritable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-
-
 
 public class Main extends Configured implements Tool {
 
     @Override
     public int run (String[] args) throws Exception {
-        CensusMapping cs = new CensusMapping(this);
-        FlagsMapping fs = new FlagsMapping(this);
+        CensusJob cs = new CensusJob(this);
+        FlagJob fs = new FlagJob(this);
 
         //single threaded
 //        cs.job();
 //        fs.job();
 
-        //multi threaded
+//        //multi threaded
         cs.start();
         fs.start();
 
